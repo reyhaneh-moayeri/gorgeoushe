@@ -7,7 +7,7 @@ console.log(textwrap);
 
 const textanim = anime.timeline().add({
   targets: ".ml12 .letter",
-  translateY: [100, 0],
+  translateY: [90, 0],
   translateZ: 0,
   opacity: [0, 1],
   easing: "easeOutExpo",
@@ -22,21 +22,21 @@ TweenMax.from(".left", 3, {
 });
 
 TweenMax.from(".header h1", 3, {
-  left: "-100%",
+  left: "-140%",
   ease: Expo.easeInOut,
   delay: 3.4,
 });
 
 TweenMax.staggerFrom(
-  ".img",
+  ".images > div",
   1,
   {
-    y: 60,
+    y: 100,
     opacity: 0,
     ease: Power2.easeOut,
     delay: 6,
   },
-  0.2
+  0.5
 );
 
 TweenMax.staggerFrom(
@@ -50,3 +50,11 @@ TweenMax.staggerFrom(
   },
   0.2
 );
+
+TweenMax.staggerFrom(".link", 1, {
+  opacity: 0,
+  ease: SteppedEase.config(1),
+  repeat: -1,
+  repeatDelay: 0.2,
+  delay: 7.8,
+});
