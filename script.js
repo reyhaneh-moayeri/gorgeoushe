@@ -3,9 +3,8 @@ textwrap.innerHTML = textwrap.textContent.replace(
   /\S/g,
   "<span class='letter'>$&</span>"
 );
-console.log(textwrap);
 
-const textanim = anime.timeline().add({
+anime.timeline().add({
   targets: ".ml12 .letter",
   translateY: [90, 0],
   translateZ: 0,
@@ -21,12 +20,18 @@ TweenMax.from(".left", 3, {
   delay: 3.4,
 });
 
+TweenMax.from(".btn", 3, {
+  left: "-140%",
+  opacity: 0,
+  ease: Expo.easeInOut,
+  delay: 3,
+});
+
 TweenMax.from(".header h1", 3, {
   left: "-140%",
   ease: Expo.easeInOut,
   delay: 3.4,
 });
-
 TweenMax.staggerFrom(
   ".images > div",
   1,
@@ -57,4 +62,18 @@ TweenMax.staggerFrom(".link", 1, {
   repeat: -1,
   repeatDelay: 0.2,
   delay: 7.8,
+});
+
+const button = document.querySelector(".btn");
+const main = document.querySelector("main");
+
+button.addEventListener("click", function (e) {
+  e.preventDefault();
+  //   main.scrollIntoView({ behavior: "smooth" });
+
+  const s1coords = main.getBoundingClientRect();
+  window.scrollTo({
+    top: s1coords.top + window.pageYOffset,
+    behavior: "smooth",
+  });
 });
