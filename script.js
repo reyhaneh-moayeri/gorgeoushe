@@ -24,7 +24,7 @@ TweenMax.from(".btn", 3, {
   left: "-140%",
   opacity: 0,
   ease: Expo.easeInOut,
-  delay: 3,
+  delay: 2.5,
 });
 
 TweenMax.from(".header h1", 3, {
@@ -44,17 +44,17 @@ TweenMax.staggerFrom(
   0.5
 );
 
-TweenMax.staggerFrom(
-  ".header p",
-  1,
-  {
-    y: 60,
-    opacity: 0,
-    ease: Power2.easeOut,
-    delay: 5.6,
-  },
-  0.2
-);
+// TweenMax.staggerFrom(
+//   ".header p",
+//   1,
+//   {
+//     y: 60,
+//     opacity: 0,
+//     ease: Power2.easeOut,
+//     delay: 5.6,
+//   },
+//   0.2
+// );
 
 TweenMax.staggerFrom(".link", 1, {
   opacity: 0,
@@ -77,3 +77,34 @@ button.addEventListener("click", function (e) {
     behavior: "smooth",
   });
 });
+
+gsap.registerPlugin(ScrollTrigger);
+
+// gsap.to(".right-main", {
+//   scrollTrigger: ".right-main",
+//   right: "50%",
+//   ease: Expo.easeInOut,
+//   delay: 3.4,
+//   scrub: true,
+// });
+
+const tl = gsap.timeline({ scrollTrigger: ".right-main" });
+
+tl.from(".right-main", 3, {
+  scrollTrigger: ".right-main",
+  right: "50%",
+  ease: Expo.easeInOut,
+  opacity: 0,
+  delay: 1,
+});
+tl.staggerFrom(
+  "main p",
+  1,
+  {
+    y: 60,
+    opacity: 0,
+    ease: Power2.easeOut,
+    delay: 2.5,
+  },
+  0.3
+);
