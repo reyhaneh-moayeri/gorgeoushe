@@ -88,10 +88,14 @@ gsap.registerPlugin(ScrollTrigger);
 //   scrub: true,
 // });
 
-const tl = gsap.timeline({ scrollTrigger: ".right-main" });
+const tl = gsap.timeline({
+  scrollTrigger: {
+    trigger: ".right-main",
+    toggleActions: "restart none none noe",
+  },
+});
 
 tl.from(".right-main", 3, {
-  scrollTrigger: ".right-main",
   right: "50%",
   ease: Expo.easeInOut,
   opacity: 0,
@@ -104,7 +108,7 @@ tl.staggerFrom(
     y: 60,
     opacity: 0,
     ease: Power2.easeOut,
-    delay: 2.5,
+    // delay: 1,
   },
   0.3
 );
