@@ -32,17 +32,13 @@ TweenMax.from(".header h1", 3, {
   ease: Expo.easeInOut,
   delay: 3.4,
 });
-TweenMax.staggerFrom(
-  ".images > div",
-  1,
-  {
-    y: 100,
-    opacity: 0,
-    ease: Power2.easeOut,
-    delay: 6,
-  },
-  0.5
-);
+gsap.from(".images > div", {
+  stagger: 0.5,
+  y: 100,
+  opacity: 0,
+  ease: Power2.easeOut,
+  delay: 6,
+});
 
 // TweenMax.staggerFrom(
 //   ".header p",
@@ -91,7 +87,7 @@ gsap.registerPlugin(ScrollTrigger);
 const tl = gsap.timeline({
   scrollTrigger: {
     trigger: ".right-main",
-    toggleActions: "restart none none noe",
+    toggleActions: "restart none none none",
   },
 });
 
@@ -99,7 +95,7 @@ tl.from(".right-main", 3, {
   right: "50%",
   ease: Expo.easeInOut,
   opacity: 0,
-  delay: 1,
+  delay: 0.1,
 });
 tl.staggerFrom(
   "main p",
